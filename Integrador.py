@@ -84,12 +84,12 @@ print("Planilha 'relatorio.xlsx' criada com sucesso.")
 
 # Configuração do servidor SMTP
 server = smtplib.SMTP_SSL('smtp.gmail.com', 465)
-server.login("lcjade76@gmail.com", "tzor lsyo ecst dfkz")
+server.login("seuemail", "senha_autenticacao")
 
 # Preparando a mensagem
 msg = MIMEMultipart()
-msg['From'] = "lcjade76@gmail.com"
-msg['To'] = "burocraciaplays12@gmail.com"
+msg['From'] = "seuemail"
+msg['To'] = "destinatario"
 msg['Subject'] = "Relatório de Estoque das Esteiras"
 
 # Corpo do e-mail
@@ -103,7 +103,7 @@ with open(relatorio_filename, "rb") as attachment:
     msg.attach(part)
 
 # Enviando o e-mail
-server.sendmail("lcjade76@gmail.com", "burocraciaplays12@gmail.com", msg.as_string())
+server.sendmail("seuemail", "destinatario", msg.as_string())
 
 # Fechando a conexão com o servidor SMTP
 server.quit()
